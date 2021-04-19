@@ -6,6 +6,7 @@ const log = console.log;
 const listNotes = function () {
     const notes = loadNotes();
     notes.forEach((element) => displayNote(element.title, element.body));
+    return notes
 };
 
 const readNote = function (title) {

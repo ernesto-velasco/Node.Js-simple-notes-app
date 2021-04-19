@@ -1,5 +1,5 @@
 const express = require("express")
-const notes = require("./notes.js")
+const notes = require("./notes")
 
 const app = express()
 const port = 3000
@@ -27,11 +27,14 @@ app.post('/add_note', (request, response) => {
 
     notes.addNote(title, body)
 
-    response.redirect('notes_created')
+    response.redirect('list_notes')
 })
 
-app.get('/notes_created', (request, response) => {
-    response.render('notes_created')
+app.get("/list_notes", (request, response) => {
+    const notes_array = notes.listNotes()
+    response.render('list_notes', {
+        notes: notes_array
+    })
 })
 
 app.listen(port, () => {
