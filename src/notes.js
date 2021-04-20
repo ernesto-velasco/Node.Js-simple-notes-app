@@ -3,20 +3,20 @@ const chalk = require("chalk");
 
 const log = console.log;
 
-const listNotes = function () {
+const index = function () {
     const notes = loadNotes();
     notes.forEach((element) => displayNote(element.title, element.body));
     return notes
 };
 
-const readNote = function (title) {
+const show = function (title) {
     const notes = loadNotes();
     foundNote = notes.find((element) => element.title === title);
     if (!foundNote) return log(chalk.red("The note does not exist"));
     displayNote(foundNote.title, foundNote.body)
 };
 
-const addNote = function (title, body) {
+const store = function (title, body) {
     let notes = loadNotes();
 
     const duplicateNotes = notes.filter((note) => note.title === title);
@@ -30,7 +30,7 @@ const addNote = function (title, body) {
     saveNotes(notes);
 };
 
-const modifyNote = function (title, newTitle) {
+const update = function (title, newTitle) {
     let notes = loadNotes();
     noteIndex = notes.findIndex((element) => element.title === title);
     if (noteIndex === -1) return log(chalk.red("We couldn't find the note you were looking for"));
@@ -39,7 +39,7 @@ const modifyNote = function (title, newTitle) {
     saveNotes(notes);
 };
 
-const removeNote = function (title) {
+const destroy = function (title) {
     let notes = loadNotes();
     noteIndex = notes.findIndex((element) => element.title === title);
     if (noteIndex === -1) return log(chalk.red("We couldn't find the note you were looking for"));
@@ -69,9 +69,9 @@ const displayNote = function (title = '', body = '') {
 }
 
 module.exports = {
-    listNotes: listNotes,
-    readNote: readNote,
-    addNote: addNote,
-    modifyNote: modifyNote,
-    removeNote: removeNote,
+    index: index,
+    show: show,
+    store: store,
+    update: update,
+    destroy: destroy,
 };

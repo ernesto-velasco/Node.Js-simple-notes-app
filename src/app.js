@@ -25,13 +25,13 @@ app.post('/add_note', (request, response) => {
     const title = request.body.title
     const body = request.body.body
 
-    notes.addNote(title, body)
+    notes.store(title, body)
 
     response.redirect('list_notes')
 })
 
 app.get("/list_notes", (request, response) => {
-    const notes_array = notes.listNotes()
+    const notes_array = notes.index()
     response.render('list_notes', {
         notes: notes_array
     })
