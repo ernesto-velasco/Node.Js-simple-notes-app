@@ -39,25 +39,6 @@ app.post('/store', (request, response) => {
     response.redirect('list_notes')
 })
 
-// display the specified resource
-app.get("/:title", (request, response) => {
-    response.send("show page")
-})
-
-// edit 
-// show the form for editing the specified resource
-// /:title
-
-// update the specified resource in storage
-app.put("/", (request, response) => {
-
-})
-
-// remove the sprecified resource from storage
-app.delete("/:title", (request, response, next) => {
-    next(new Error('not implemented'))
-})
-
 
 app.listen(port, () => {
     log('Listening at http://localhost:3000')
