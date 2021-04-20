@@ -31,11 +31,12 @@ const store = function (title, body) {
     saveNotes(notes);
 };
 
-const update = function (title, newTitle) {
+const update = function (title, newTitle, newBody) {
     let notes = loadNotes();
     noteIndex = notes.findIndex((element) => element.title === title);
     if (noteIndex === -1) return log(chalk.red("We couldn't find the note you were looking for"));
     notes[noteIndex].title = newTitle
+    notes[noteIndex].body = newBody
     log(chalk.blue("The note was modified"))
     saveNotes(notes);
 };

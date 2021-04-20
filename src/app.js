@@ -48,6 +48,26 @@ app.get("/notes/:title", (request, response) => {
     }) : response.redirect("/not-found")
 })
 
+// show the form for editing the specified resource
+app.get("/notes/:title/edit", (request, response) => {
+    title = request.params.title
+    note = notes.show(title)
+    note ? response.render("notes/edit",{
+        note: note
+    }) : response.redirect("/not-found")
+})
+
+// update the specified resource in storage
+app.post("/notes/:title", (request, response) => {
+    log("PUT")
+    title = request.params.title
+    log(title)
+    newTitle = request.body.title
+    newBody = request.body.body
+    notes.update(title, newTitle, newBody)
+    response.redirect("/")
+})
+
 app.use(function (req, res) {
     res.status(404).send('error 404');
 });
