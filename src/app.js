@@ -39,6 +39,18 @@ app.post('/store', (request, response) => {
     response.redirect('list_notes')
 })
 
+// display the specified resource
+app.get("/notes/:title", (request, response) => {
+    title = request.params.title
+    note = notes.show(title)
+    note ? response.render("notes/show",{
+        note: note
+    }) : response.redirect("/not-found")
+})
+
+app.use(function (req, res) {
+    res.status(404).send('error 404');
+});
 
 app.listen(port, () => {
     log('Listening at http://localhost:3000')

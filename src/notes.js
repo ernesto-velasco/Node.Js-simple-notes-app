@@ -14,6 +14,7 @@ const show = function (title) {
     foundNote = notes.find((element) => element.title === title);
     if (!foundNote) return log(chalk.red("The note does not exist"));
     displayNote(foundNote.title, foundNote.body)
+    return foundNote
 };
 
 const store = function (title, body) {
