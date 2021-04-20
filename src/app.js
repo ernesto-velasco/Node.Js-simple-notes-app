@@ -22,21 +22,21 @@ app.get("/", (request, response) => {
 })
 
 // show the form for creating a new resource
-app.get("/create", (request, response) => {
+app.get("/notes/create", (request, response) => {
     response.render("index", {
         message: "Welcome to App Notes!"
     })
 })
 
 // store a newly created resource in storage
-app.post('/store', (request, response) => {
+app.post('/notes/store', (request, response) => {
     log(request.body)
     const title = request.body.title
     const body = request.body.body
 
     notes.store(title, body)
 
-    response.redirect('list_notes')
+    response.redirect('/')
 })
 
 // display the specified resource
