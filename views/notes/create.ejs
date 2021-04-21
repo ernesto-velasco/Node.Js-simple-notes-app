@@ -1,54 +1,30 @@
-<!DOCTYPE html>
-<html lang="en" id="html">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello world</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <script>
-      if (localStorage.theme === 'dark' || (!'theme' in localStorage && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.querySelector('html').classList.add('dark')
-      } else if (localStorage.theme === 'dark') {
-          document.querySelector('html').classList.add('dark')
-      }
-  </script>
-  <script src="/js/index.js" defer></script>
-</head>
-
-<body class="dark:bg-gray-900">
-  <div class="h-screen flex justify-center items-center">
-    <%- include('../partials/darkToggle'); %>
-    <form class="w-full max-w-lg mx-auto my-5" action="/notes/store" method="post">
-      <h1 class="text-gray-900 dark:text-white">
-        <%= message %>
-      </h1>
-      <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 dark:text-white" for="grid-first-name">
-            Title
-          </label>
-          <input
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="grid-first-name" type="text" placeholder="Note Title" name="title">
-        </div>
-        <div class="w-full md:w-1/2 px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 dark:text-white" for="grid-last-name">
-            Body
-          </label>
-          <input
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="grid-last-name" type="text" placeholder="Note Body" name="body">
-        </div>
-      </div>
-      <div class="flex flex-wrap -mx-3 mb-6 px-3 ">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-2 px-4" type="submit">
-          Create a new note
-        </button>
-      </div>
-    </form>
-  </div>
-</body>
-
-</html>
+<div class="h-screen flex justify-center items-center">
+<form class="w-full max-w-lg mx-auto my-5" action="/notes/store" method="post">
+    <h1 class="text-gray-900 dark:text-white">
+    <%= message %>
+    </h1>
+    <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 dark:text-white" for="grid-first-name">
+        Title
+        </label>
+        <input
+        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+        id="grid-first-name" type="text" placeholder="Note Title" name="title">
+    </div>
+    <div class="w-full md:w-1/2 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 dark:text-white" for="grid-last-name">
+        Body
+        </label>
+        <input
+        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+        id="grid-last-name" type="text" placeholder="Note Body" name="body">
+    </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-6 px-3 ">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-2 px-4" type="submit">
+        Create a new note
+    </button>
+    </div>
+</form>
+</div>

@@ -1,5 +1,6 @@
 const { response } = require("express")
 const express = require("express")
+var expressLayouts = require('express-ejs-layouts')
 const notes = require("./notes")
 
 const log  = console.log
@@ -8,6 +9,7 @@ const log  = console.log
 const app = express()
 const port = 3000
 app.set("view engine", "ejs")
+app.use(expressLayouts);
 app.use(express.static('public'))
 app.use(express.urlencoded({
     extended: true
