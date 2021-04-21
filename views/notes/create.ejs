@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello world</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <script>
       if (localStorage.theme === 'dark' || (!'theme' in localStorage && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
           document.querySelector('html').classList.add('dark')
@@ -14,12 +14,12 @@
           document.querySelector('html').classList.add('dark')
       }
   </script>
-  <script src="js/index.js" defer></script>
+  <script src="/js/index.js" defer></script>
 </head>
 
 <body class="dark:bg-gray-900">
   <div class="h-screen flex justify-center items-center">
-    <%- include('./partials/darkToggle'); %>
+    <%- include('../partials/darkToggle'); %>
     <form class="w-full max-w-lg mx-auto my-5" action="/notes/store" method="post">
       <h1 class="text-gray-900 dark:text-white">
         <%= message %>

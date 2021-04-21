@@ -16,14 +16,14 @@ app.use(express.urlencoded({
 // display a listing of the resource
 app.get("/", (request, response) => {
     const notes_array = notes.index()
-    response.render('list_notes', {
+    response.render('notes/index', {
         notes: notes_array
     })
 })
 
 // show the form for creating a new resource
 app.get("/notes/create", (request, response) => {
-    response.render("index", {
+    response.render("notes/create", {
         message: "Welcome to App Notes!"
     })
 })
