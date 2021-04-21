@@ -58,13 +58,19 @@ app.get("/notes/:title/edit", (request, response) => {
 })
 
 // update the specified resource in storage
-app.post("/notes/:title", (request, response) => {
-    log("PUT")
+app.post("/notes/:title/update", (request, response) => {
     title = request.params.title
     log(title)
     newTitle = request.body.title
     newBody = request.body.body
     notes.update(title, newTitle, newBody)
+    response.redirect("/")
+})
+
+// remove the sprecified resource from storage
+app.post("/notes/:title/delete", (request, response) => {
+    title = request.params.title
+    notes.destroy(title)
     response.redirect("/")
 })
 
