@@ -19,6 +19,7 @@ app.use(express.urlencoded({
 app.get("/", (request, response) => {
     const notes_array = notes.index()
     response.render('notes/index', {
+        pageTitle: "Index",
         notes: notes_array
     })
 })
@@ -26,6 +27,7 @@ app.get("/", (request, response) => {
 // show the form for creating a new resource
 app.get("/notes/create", (request, response) => {
     response.render("notes/create", {
+        pageTitle: "Create a new note",
         message: "Welcome to App Notes!"
     })
 })
@@ -46,6 +48,7 @@ app.get("/notes/:title", (request, response) => {
     title = request.params.title
     note = notes.show(title)
     note ? response.render("notes/show",{
+        pageTitle: title,
         note: note
     }) : response.redirect("/not-found")
 })
@@ -55,6 +58,7 @@ app.get("/notes/:title/edit", (request, response) => {
     title = request.params.title
     note = notes.show(title)
     note ? response.render("notes/edit",{
+        pageTitle: "Edit a note",
         note: note
     }) : response.redirect("/not-found")
 })

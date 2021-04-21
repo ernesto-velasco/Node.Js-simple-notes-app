@@ -1,14 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Nota</h1>
-    <p><%= note.title %></p>
-    <p><%= note.body %></p>
-</body>
-</html>
+<div class="justify-center items-center">
+    <div
+                class="card m-2  rounded-lg transform transition-all duration-200">
+                <div class="m-3 mb-4 pb-4 relative">
+                    <p
+                        class="font-light font-mono text-sm truncate text-gray-700 dark:text-gray-300 hover:text-gray-900 transition-all duration-200">
+                        <%= note.body %>
+                    </p>
+                </div>
+                <div class="absolute bottom-0 right-0 flex ">
+                    <div class=" dark:text-gray-400">
+                        <form action="/notes/<%= note.title %>/edit" method="GET">
+                            <button type="submit">
+                                <span
+                                    class="hover:text-yellow-400 text-sm text-teal-800 font-mono bg-teal-100 inline rounded-full px-2 align-top float-right animate-pulse">edit</span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="dark:text-gray-400 ">
+                        <form action="/notes/<%= note.title %>/delete" method="POST">
+                            <button type="submit">
+                                <span
+                                    class="hover:text-red-400 text-sm text-teal-800 font-mono bg-teal-100 inline rounded-full px-2 align-top float-right animate-pulse">X</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>

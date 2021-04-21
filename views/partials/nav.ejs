@@ -1,0 +1,21 @@
+<nav class="bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="block">
+            <div class="flex items-baseline space-x-4">
+              <a href="/" class="nav-link <%= pageTitle === 'Index' ? 'active' : '' %> ">Index</a>
+              <a href="/notes/create" class="nav-link <%= pageTitle === 'Create a new note' ? 'active' : '' %> ">New note</a>
+
+            </div>
+          </div>
+        </div>
+        <div class="block">
+          <div class="ml-4 flex items-center md:ml-6">
+            <%- include('../partials/darkToggle'); %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>

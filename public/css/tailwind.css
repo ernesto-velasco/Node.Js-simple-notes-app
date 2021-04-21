@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    input {
+        @apply appearance-none block w-full bg-gray-400 text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-gray-200
+    }
+    .nav-link {
+        @apply text-gray-900 px-3 py-2 rounded-md text-sm font-medium dark:text-gray-300
+    }
+    .active {
+        @apply bg-indigo-800 dark:bg-gray-800 dark:text-gray-300 text-white
+    }
+}
