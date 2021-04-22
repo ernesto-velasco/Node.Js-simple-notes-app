@@ -81,7 +81,9 @@ app.post("/notes/:title/delete", (request, response) => {
 })
 
 app.use(function (req, res) {
-    res.status(404).send('error 404');
+    res.status(404).render('error-404', {
+        pageTitle: "Error 404 - Not Found"
+    });
 });
 
 app.listen(port, () => {
