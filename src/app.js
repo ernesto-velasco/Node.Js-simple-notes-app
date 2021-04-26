@@ -44,7 +44,7 @@ app.post('/notes/store', (request, response) => {
 })
 
 // display the specified resource
-app.get("/notes/:title", (request, response) => {
+app.get("/notes/:title(*)", (request, response) => {
     title = request.params.title
     note = notes.show(title)
     note ? response.render("notes/show",{
@@ -54,7 +54,7 @@ app.get("/notes/:title", (request, response) => {
 })
 
 // show the form for editing the specified resource
-app.get("/notes/:title/edit", (request, response) => {
+app.get("/notes/edit/:title(*)", (request, response) => {
     title = request.params.title
     note = notes.show(title)
     note ? response.render("notes/edit",{
@@ -64,18 +64,17 @@ app.get("/notes/:title/edit", (request, response) => {
 })
 
 // update the specified resource in storage
-app.post("/notes/:title/update", (request, response) => {
-    title = request.params.title
-    log(title)
-    newTitle = request.body.title
-    newBody = request.body.body
+app.post("/notes/update", (request, response) => {
+    title = request.body.title
+    newTitle = request.body.new_title
+    newBody = request.body.new_body
     notes.update(title, newTitle, newBody)
     response.redirect("/")
 })
 
 // remove the sprecified resource from storage
-app.post("/notes/:title/delete", (request, response) => {
-    title = request.params.title
+app.post("/notes/delete", (request, response) => {
+    title = request.body.title
     notes.destroy(title)
     response.redirect("/")
 })

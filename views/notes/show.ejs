@@ -8,22 +8,7 @@
                     </p>
                 </div>
                 <div class="absolute bottom-0 right-0 flex ">
-                    <div class=" dark:text-gray-400">
-                        <form action="/notes/<%= note.title %>/edit" method="GET">
-                            <button type="submit">
-                                <span
-                                    class="hover:text-yellow-400 text-sm text-teal-800 font-mono bg-teal-100 inline rounded-full px-2 align-top float-right animate-pulse">edit</span>
-                            </button>
-                        </form>
-                    </div>
-                    <div class="dark:text-gray-400 ">
-                        <form action="/notes/<%= note.title %>/delete" method="POST">
-                            <button type="submit">
-                                <span
-                                    class="hover:text-red-400 text-sm text-teal-800 font-mono bg-teal-100 inline rounded-full px-2 align-top float-right animate-pulse">X</span>
-                            </button>
-                        </form>
-                    </div>
+                    <%- include('../partials/actions'); %>
                 </div>
             </div>
     </div>

@@ -1,0 +1,23 @@
+<div class="text-gray-800 dark:text-gray-400">
+    <div class="flex items-center justify-center mt-4">
+<form action="/notes/<%= title %>" method="GET">
+    <button type="submit">
+        <span
+            class="hover:text-blue-400 text-sm font-mono bg-teal-100 inline rounded-full px-2 align-top float-right animate-pulse">show</span>
+    </button>
+</form>
+<form action="/notes/edit/<%= title %>" method="GET">
+    <button type="submit">
+        <span
+            class="hover:text-yellow-400 text-sm font-mono bg-teal-100 inline rounded-full px-2 align-top float-right animate-pulse">edit</span>
+    </button>
+</form>
+<form action="/notes/delete" method="POST">
+    <input type="hidden" name="title" value="<%= title %>">
+    <button type="submit">
+        <span
+            class="hover:text-red-400 text-sm  font-mono bg-teal-100 inline rounded-full px-2 align-top float-right animate-pulse">X</span>
+    </button>
+</form>
+</div>
+</div>
